@@ -10,33 +10,38 @@
       </ul>
     </div>
   <% end %>
+  
+  <br >
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class="input-group mb-3">
+    <label class="input-group-text" for="inputGroupFile01">Upload</label>
+    <input type="file" class="form-control" id="inputGroupFile01">
   </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+
+  <div class="form-floating mb-3">
+    <%= form.text_field :title, class:"form-control",  placeholder:"Title", id:"imgTitle" %>
+    <label for="imgTitle">Title</label>
   </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
+  <div class="form-floating mb-3">
+    <%= form.text_area :description, class:"form-control desc", placeholder:"Enter image description here", id:"imgDescription", style:"height:100px;" %>
+    <label for="imgDescription">Description</label>
   </div>
 
-  <div class="field">
+  <div class="row mb-3">
+    <div class="col-sm">
+      <%= form.text_field :price, class:"form-control form-control-sm",  placeholder:"Enter price" %>
+    </div>
+  </div>
+  
+
+  <div class="field mb-3">
     <%= form.label :private %>
     <%= form.check_box :private %>
   </div>
 
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_area :url %>
-  </div>
-
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-primary" %>
   </div>
 <% end %>
