@@ -1,3 +1,78 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.links-user {
+    background: #282726;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    a {
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+    }
+}
+
+.login-form-1{
+    margin-top: 5% !important;
+    margin-bottom: 5%;
+    .links, a, .custom-control-label {
+        color: #fff;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    span {
+        padding-right: 5px;
+    }
+    padding: 9%;
+    background:#282726;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+}
+.login-form-1 h3{
+    text-align: center;
+    margin-bottom:12%;
+    color:#fff;
+}
+.login_btn {
+    font-weight: 600;
+    width: 50%;
+    color: #282726;
+    background: #fff !important;
+    border: none;
+    border-radius: 1.5rem;
+    padding:2%;
+}
+
+.btnSubmit{
+    font-weight: 600;
+    width: 50%;
+    color: #282726;
+    background-color: #fff;
+    border: none;
+    border-radius: 1.5rem;
+    padding:2%;
+}
+
+.login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+.input-group-text {
+    background: white !important;
+    color: #282726 !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_user,
+.input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #282726 !important;
+}
+.login_container {
+    padding: 0 2rem;
+}

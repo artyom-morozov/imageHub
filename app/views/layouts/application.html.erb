@@ -15,7 +15,9 @@
     <title>ImageHub</title>
   </head>
   <body>
-    <%= render 'home/header'%>
+    <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_user_password_path) %>
+      <%= render 'home/header'%>
+    <% end %>
     <div class="container">
       <% if notice %>
         <%= render 'layouts/alerts' %>
