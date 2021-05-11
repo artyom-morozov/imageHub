@@ -1,27 +1,38 @@
-<p>
-  <strong>Title:</strong>
-  <%= @image.title %>
-</p>
+<div class="row justify-content-center flex-nowrap" style="margin-top:3rem">
+  <div class="col-md-4">
+    <div class="row">
+      <h1 class="img-title">
+        <%= @image.title %>
+      </h1>
+    </div>
+    <hr>
+    <div class="row">
+      <p class="desc">
+        <%= @image.description %>
+      </p>
+    </div>
+    <div class="row">
+      <p></p>
+    </div>
+  <div class="row">
+    <div class="col">
+        <%= link_to "Download free Image", rails_blob_path(@image.photo.blob, disposition: "attachment"), class:'btn btn-primary btn-large' %>
+    </div>
+  </div>
+  </div>
+  <div class="col">
+    <div class="img-holder" style="background-image: url(<%= @image.photo.url %>);">
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @image.description %>
-</p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @image.price %>
-</p>
+<% if current_user && current_user.id == @image.user_id  %>
+  <div class="row justify-content-start">
+    <div class="col-2">
 
-<p>
-  <strong>Private:</strong>
-  <%= @image.private %>
-</p>
-
-<p>
-  <strong>Url:</strong>
-  <%= @image.url %>
-</p>
-
-<%= link_to 'Edit', edit_image_path(@image) %> |
-<%= link_to 'Back', images_path %>
+      <%= link_to 'Destroy', @image, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %>
+      <%= link_to 'Edit', edit_image_path(@image), class:'btn btn-primary' %>  
+    </div>
+  </div>
+<% end %>

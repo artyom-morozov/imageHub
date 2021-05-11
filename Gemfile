@@ -25,13 +25,12 @@ gem 'jbuilder', '~> 2.7'
 # User management
 gem 'devise', '~> 4.8'
 
-# Use Amazon S3 bucket 
-gem 'aws-sdk-s3'
 
 # Allows rails to use .env files
 gem 'dotenv-rails'
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
+gem "aws-sdk-s3", require: false
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

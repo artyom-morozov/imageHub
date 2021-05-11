@@ -1,33 +1,20 @@
 <h1>Images</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Private</th>
-      <th>Url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- Gallery -->
+<div class="row">
+  <% @images.each_slice(2) do |image1, image2| %>
+    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+      <%   if image1 %>
+        <%= link_to image1 do %>
+          <%= image_tag image1.photo, class:"w-100 shadow-1-strong rounded mb-4" %>
+        <% end %>
+      <% end %>
+      <% if image2 %>
+        <%= link_to image2 do %>
+          <%= image_tag image2.photo, class:"w-100 shadow-1-strong rounded mb-4" %>
+        <% end %>      
+      <% end %>
+    </div>
+  <% end %>
+</div>
 
-  <tbody>
-    <% @images.each do |image| %>
-      <tr>
-        <td><%= image.title %></td>
-        <td><%= image.description %></td>
-        <td><%= image.price %></td>
-        <td><%= image.private %></td>
-        <td><%= image.url %></td>
-        <td><%= link_to 'Show', image %></td>
-        <td><%= link_to 'Edit', edit_image_path(image) %></td>
-        <td><%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Image', new_image_path %>
