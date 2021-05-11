@@ -1,25 +1,18 @@
-# README
+# Shopfy Internhship Challenge imageHub
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- [Challenge App](https://enigmatic-earth-54771.herokuapp.com/)
+- [Challenge Specifications](https://docs.google.com/document/d/1lOyao2XJfJ7mIojKMs4IuLdncNuOOGNDOYOLaCQ_VVM/edit)
 
-Things you may want to cover:
+## Overview 
 
-* Ruby version
+**ImageHub** is a localized image repository. Users are able to create an account, and upload/delete their images. Each image posting allows a title and a description. By using the navbar at the top of the page, users can view all images available or create new images.
 
-* System dependencies
+## Development 
 
-* Configuration
+- Ruby on Rails
+- PostgreSQL
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# shopfy-challenge-imageHub
+## Future Imporvements
+- [x] Implement user management
+- [ ] Add categories to images
+- [ ] Allow for a search via categories
