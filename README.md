@@ -1,4 +1,4 @@
-# Shopfy Internhship Challenge imageHub
+# Shopify Internhship Challenge imageHub
 
 - [Challenge App](https://enigmatic-earth-54771.herokuapp.com/)
 - [Challenge Specifications](https://docs.google.com/document/d/1lOyao2XJfJ7mIojKMs4IuLdncNuOOGNDOYOLaCQ_VVM/edit)
