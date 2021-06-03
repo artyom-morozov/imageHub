@@ -1,4 +1,13 @@
-<h1>Images</h1>
+<div class="row mb-2">
+  <h1>Images
+    <% if @image_user %>
+      <span>by <%= @image_user.email %> </span>
+    <% end %>
+    <% if @category %>
+      <span>in category <%= @category.name %> </span>
+    <% end %>
+  </h1>
+</div>
 
 <!-- Gallery -->
 <div class="row">

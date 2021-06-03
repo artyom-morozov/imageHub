@@ -28,11 +28,23 @@
     <%= form.text_area :description, class:"form-control desc", placeholder:"Enter image description here", id:"imgDescription", style:"height:100px;" %>
     <label for="imgDescription">Description</label>
   </div>
+
   <div class="row mb-3">
-    <div class="col-sm-2">
-      <%= form.number_field :user_id, id: :image_user_id, value: current_user.id, type: :hidden %>
+      <h3>Categories</h3>
+      <% Category.all.each_slice(4) do |categories_slice| %>
+        <div class="col-2">
+          <% categories_slice.each do |c1| %>
+              <div class="form-check">
+                <%= check_box_tag "image[category_ids][]", c1.id, @image.categories.include?(c1), class:"form-check-input" %>
+                <label class="form-check-label" for="flexCheckDefault">
+                  <%= c1.name %>
+                </label>
+              </div>
+          <% end %>
+        </div>
+      <% end %>
+      
     </div>
-  </div>
 
   <div class="actions">
     <%= form.submit class:"btn btn-primary" %>

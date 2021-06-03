@@ -1,29 +1,45 @@
 <div class="row justify-content-center flex-nowrap" style="margin-top:3rem">
-  <div class="col-md-4">
+  <div class="col-3">
     <div class="row">
       <h1 class="img-title">
         <%= @image.title %>
       </h1>
     </div>
     <hr>
-    <div class="row">
+    <div class="row" >
       <p class="desc">
         <%= @image.description %>
       </p>
     </div>
-    <div class="row">
-      <p></p>
+
+    
+    <div class="row mb-3">
+      <div class="col">
+          <%= link_to "Download free Image", rails_blob_path(@image.photo.blob, disposition: "attachment"), class:'btn btn-primary btn-large' %>
+      </div>
     </div>
-  <div class="row">
-    <div class="col">
-        <%= link_to "Download free Image", rails_blob_path(@image.photo.blob, disposition: "attachment"), class:'btn btn-primary btn-large' %>
+
+    <div class="row mb-3 flex-nowrap">
+      <h5 style="width: max-content;">Image by:</h5>
+      <span>
+        <%= link_to @image.user.email, images_user_path_url(:id => @image.user.id), class:"badge badge-pill badge-info"%>
+      </span>
     </div>
-  </div>
+
+    <div class="row mb-3">
+      <h5>Featured in:</h5>
+      <div class="col">
+            <% @image.categories.each do |category| %>
+                <%= link_to category.name, category_image_url(:category => category.id), class:"badge badge-dark"%>
+            <% end %>
+      </div>
+    </div>
   </div>
   <div class="col">
-    <div class="img-holder" style="background-image: url(<%= @image.photo.url %>);">
+    <div class="img-holder" style="background-image: url(<%= url_for(@image.photo.variant(resize_to_limit: [475, nil]).processed) %>);">
     </div>
   </div>
+  
 </div>
 
 

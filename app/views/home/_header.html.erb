@@ -9,7 +9,17 @@
         <li class="nav-item">
             <%= link_to 'All Images', images_path, class:"nav-link"%>
         </li>
-        
+
+        <% if user_signed_in? %>
+          <li class="nav-item">
+              <%= link_to 'My Images', images_user_path_url(:id => current_user.id), class:"nav-link"%>
+          </li>
+        <% end %>
+
+        <li class="nav-item dropdown">
+          <%= link_to 'Categories', categories_path, class:"nav-link"%>         
+        </li>
+
         <% if user_signed_in? %>
             <li class="nav-item">
                 <%= link_to 'Add Image', new_image_path, class:"nav-link"%>
@@ -36,10 +46,10 @@
         
 
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+    <%= form_tag images_path , :method => "get" do %>
+      <%= text_field_tag :search, params[:search], placeholder:"Search", class:"form-control me-2" %>
+      <%= submit_tag("Search", :name => nil, class:"btn btn-outline-success" ) %>
+    <% end %>
     </div>
   </div>
 </nav>

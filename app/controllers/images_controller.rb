@@ -5,7 +5,18 @@ class ImagesController < ApplicationController
   
   # GET /images or /images.json
   def index
-    @images = Image.all
+
+    if params[:id]
+      @image_user = User.all.find(params[:id])
+      @images = @image_user.images
+    elsif params[:search]
+      @images = Image.search(params[:search])
+    elsif params[:category]
+      @category = Category.all.find(params[:category])
+      @images = @category.images
+    else
+      @images = Image.all
+    end
   end
 
   # GET /images/1 or /images/1.json
@@ -76,6 +87,6 @@ class ImagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def image_params
-      params.require(:image).permit(:title, :description, :user_id, :photo)
+      params.require(:image).permit(:title, :search, :description, :user_id, :photo, category_ids: [])
     end
 end

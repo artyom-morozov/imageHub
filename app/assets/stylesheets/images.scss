@@ -17,3 +17,24 @@
 .desc {
     font-size: 1em;
 }
+.details {
+    width: 250px !important;
+}
+
+.badge-dark {
+    color: #fff;
+    background-color: #1d2124;
+}
+.badge-dark:hover, .badge-info:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.badge-info {
+    
+    color: #fff;
+    background-color: #17a2b8;
+}
+
+a.badge-info {
+    cursor: pointer;
+}
