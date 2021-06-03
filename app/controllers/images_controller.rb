@@ -3,14 +3,21 @@ class ImagesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: %i[ edit update destroy ]
   
+  def search
+    if params[:search].blank?
+      redirect_to(root_path, notice: "Empty search field!") and return  
+    else
+      @parameter = params[:search].downcase  
+      @results = Image.where("lower(title) LIKE :search OR lower(description) LIKE :search", search: "%#{@parameter}%")
+    end
+  end
+
   # GET /images or /images.json
   def index
 
     if params[:id]
       @image_user = User.all.find(params[:id])
       @images = @image_user.images
-    elsif params[:search]
-      @images = Image.search(params[:search])
     elsif params[:category]
       @category = Category.all.find(params[:category])
       @images = @category.images
