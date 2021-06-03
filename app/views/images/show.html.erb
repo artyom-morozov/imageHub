@@ -15,8 +15,14 @@
     
     <div class="row mb-3">
       <div class="col">
-          <%= link_to "Download free Image", rails_blob_path(@image.photo.blob, disposition: "attachment"), class:'btn btn-primary btn-large' %>
+          <%= link_to "Download High Resolution", rails_blob_path(@image.photo.blob, disposition: "attachment"), class:'btn btn-primary btn-large' %>
       </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <%= link_to "Download Low Resolution", rails_representation_url(@image.photo.variant(resize_to_limit: [475, nil], quality: 70), disposition: "attachment"),download: '', class:'btn btn-primary btn-large' %>
+          
+        </div>
     </div>
 
     <div class="row mb-3 flex-nowrap">
@@ -36,7 +42,7 @@
     </div>
   </div>
   <div class="col">
-    <div class="img-holder" style="background-image: url(<%= url_for(@image.photo.variant(resize_to_limit: [475, nil]).processed) %>);">
+    <div class="img-holder" style="background-image: url(<%= url_for(@image.photo.variant(resize_to_limit: [475, nil], quality: 70).processed) %>);">
     </div>
   </div>
   
