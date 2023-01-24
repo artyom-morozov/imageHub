@@ -1,9 +1,4 @@
-# Shopify Internship Challenge imageHub
-
-- [Challenge App](https://enigmatic-earth-54771.herokuapp.com/)
-- [Challenge Specifications](https://docs.google.com/document/d/1lOyao2XJfJ7mIojKMs4IuLdncNuOOGNDOYOLaCQ_VVM/edit)
-
-## Overview 
+## imageHub 
 
 **ImageHub** is a localized image repository. Users are able to create an account, and upload/delete their images. 
 
